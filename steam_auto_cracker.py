@@ -24,7 +24,7 @@ try: # Handles Python errors to write them to a log file so they can be reported
 
         def DoRequest(self):
             self.tries += 1
-            req = requests.get(self.url, timeout=10)
+            req = requests.get(self.url, timeout=10, verify=False)
             if not req.ok:
                 if self.tries < RETRY_MAX:
                     # Do another try
